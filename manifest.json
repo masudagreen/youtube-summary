@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "YouTube → Gemini 要約",
+  "version": "1.0.0",
+  "description": "YouTubeのサムネイルを右クリックして Gemini のウェブUIで要約を依頼します（API不使用）。",
+  "permissions": ["contextMenus", "storage"],
+  "host_permissions": [
+    "*://*.youtube.com/*",
+    "*://youtu.be/*",
+    "*://gemini.google.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://gemini.google.com/*"],
+      "js": ["gemini.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
