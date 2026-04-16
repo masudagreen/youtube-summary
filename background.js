@@ -40,7 +40,7 @@ chrome.contextMenus.onClicked.addListener(async (info, tab) => {
     }
   });
 
-  chrome.tabs.create({ url: "https://gemini.google.com/app" });
+  chrome.tabs.create({ url: "https://gemini.google.com/app", active: false });
 });
 
 // youtu.be/XXX や watch?v=XXX を抽出して短い正規形にする
