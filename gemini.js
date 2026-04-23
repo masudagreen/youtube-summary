@@ -18,7 +18,7 @@
     `2. 要点（箇条書き・5〜8個）\n` +
     `3. 重要な数字・固有名詞があれば抽出\n` +
     `4. 結論・まとめ（2〜3行）\n\n` +
-    `※動画の内容に直接アクセスできない場合は、タイトル・説明欄・字幕から推測できる範囲で要約してください。`;
+    `最後にこの動画の主張に対して、真偽を推測しその理由を述べてください。`;
 
   const input = await waitFor(findInput, 20000, 200);
   if (!input) {
@@ -90,7 +90,7 @@ function waitFor(fn, timeout, interval) {
     const start = Date.now();
     const tick = () => {
       let result = null;
-      try { result = fn(); } catch {}
+      try { result = fn(); } catch { }
       if (result) return resolve(result);
       if (Date.now() - start > timeout) return resolve(null);
       setTimeout(tick, interval);
